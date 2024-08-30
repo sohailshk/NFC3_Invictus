@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harmony Connect</title>
+    <!-- <link rel="stylesheet" href="style1.css"> -->
+    {% load static %}
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed; 
+    width: 100%;
+    top: 0;
+    z-index: 10; 
+     background: transparent;
+}
+
+.logo h1 {
+    font-size: 28px;
+    color: white;
+    margin-bottom: 5px;
+}
+
+.logo p {
+    font-size: 14px;
+    color: #00cc99;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+}
+
+nav ul li {
+    margin-left: 20px;
+    position: relative;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    transition: 0.3s;
+}
+
+
+nav ul li a:hover {
+    color: #00cc99;
+}
+
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    padding: 10px;
+    list-style: none;
+}
+
+nav ul li:hover .dropdown {
+    display: block;
+}
+
+.dropdown li {
+    margin-bottom: 10px;
+}
+
+.dropdown li a {
+    color: white;
+    font-size: 14px;
+}
+
+.hero {
+    height: 100vh;
+    background-image: url("{% static 'images/b2.jpg' %}");/* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: left;
+    color: white;
+    padding: 0 20px;
+    max-width: 600px;
+}
+
+.hero-content h2 {
+    font-size: 48px;
+    margin-bottom: 20px;
+}
+
+.hero-content .tagline {
+    font-size: 24px;
+    color: #00cc99;
+    margin-bottom: 20px;
+}
+
+.hero-content .description {
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #555;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    border-radius: 4px;
+}
+
+.btn:hover {
+    background-color: #00cc99;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    color: #333;
+    background-color: #f9f9f9;
+}
+
+.mission {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.mission-content {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.mission-content h2 {
+    font-size: 36px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.mission-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.mission-content button {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    background-color: #1abc9c;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.mission-content button:hover {
+    background-color: #16a085;
+}
+
+.mission-image {
+    flex: 1;
+    text-align: right;
+}
+
+.mission-image img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.stats-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-image: url("{% static 'images/s1.jpg' %}"); /* Replace with your actual background image path */
+    background-size: cover;
+    padding: 20px 0;
+}
+
+.stat {
+    text-align: center;
+    color: #fff;
+}
+
+.stat h2 {
+    font-size: 2em;
+    margin: 0;
+    color: #00bfa5; /* Adjusted color to match the style in your image */
+}
+
+.stat p {
+    margin: 5px 0 0;
+    font-size: 1.2em;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.volunteer-section {
+    background-color: #00a97f;
+    padding: 50px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: left;
+}
+
+.volunteer-content {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    padding: 20px;
+    background-color: #00a97f;
+}
+
+.image-container img {
+    max-width: 250px;
+    height: auto;
+}
+
+.text-container {
+    margin-left: 40px;
+    color: #fff;
+    height: 200px;
+}
+
+.text-container h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.text-container p {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ccc;
+    color: #333;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: #aaa;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+}
+
+.contact-section {
+    padding: 50px 20px;
+    background-color: #fff;
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+}
+
+.contact-form {
+    flex: 1;
+    margin-right: 40px;
+}
+
+.contact-form h2 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-form p {
+    margin-bottom: 20px;
+    font-size: 1.2em;
+    color: #777;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #333;
+    background-color: #f5f5f5;
+}
+
+.contact-form button {
+    padding: 15px;
+    background-color: #00a97f;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #008a68;
+}
+
+.contact-info {
+    flex: 0.5;
+    text-align: left;
+}
+
+.contact-info h2 {
+    font-size: 2.5em;
+    color: #00a97f;
+    margin-bottom: 20px;
+}
+
+.contact-info h3 {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.contact-info p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+
+/* services */
+
+.our-services {
+    padding: 50px 0;
+    background-color: #f5f5f5;
+    text-align: center;
+  }
+  
+  .section-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .section-description {
+    font-size: 1.25rem;
+    color: #777;
+    margin-bottom: 40px;
+  }
+  
+  .service-cards {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .service-cards .card {
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    flex-basis: 30%;
+    max-width: 30%;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .service-cards .card img {
+    width: 100%;
+    height: auto;
+  }
+  
+  .service-cards .card-content {
+    padding: 20px;
+    text-align: left;
+  }
+  
+  .service-cards .card-content h3 {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .service-cards .card-content p {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .service-cards .card:hover {
+    transform: translateY(-10px);
+  }
+  
+  @media (max-width: 768px) {
+    .service-cards {
+      flex-direction: column;
+    }
+  
+    .service-cards .card {
+      max-width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+  
+/* Services */
+
+
+/* Footer */
+
+.site-footer {
+    background-color: #333;
+    color: #f9f9f9;
+    padding: 40px 0;
+    font-size: 16px;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer-section {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.footer-section h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #1abc9c;
+}
+
+.footer-section p,
+.footer-section ul,
+.footer-section li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    line-height: 1.6;
+}
+
+.footer-section ul {
+    margin-top: 20px;
+}
+
+.footer-section ul li a {
+    color: #f9f9f9;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-section ul li a:hover {
+    color: #1abc9c;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    color: #999;
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-section {
+        margin-bottom: 30px;
+    }
+}
+
+/* form */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFFFFF;
+    margin: 0;
+    padding: 0;
+}
+
+.volunteer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px;
+    background-color: #FFFFFF;
+}
+
+.content {
+    max-width: 50%;
+    margin-right: 20px;
+}
+
+.content h1 {
+    font-size: 40px;
+    color: #00a97f;
+    margin-bottom: 10px;
+}
+
+.content h2 {
+    font-size: 27px;
+    color: #00a97f;
+    margin-bottom: 20px;
+}
+
+.content p {
+    font-size: 24px;
+    color: #333333;
+    margin-bottom: 20px;
+}
+
+.content button {
+    padding: 15px 30px;
+    background-color: #00a97f;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.content button:hover {
+    background-color: #00a97f;
+}
+.image-container{
+    flex: 1;
+}
+.image-container img {
+    max-width: 100%;
+    height: auto;
+}
+
+.form-popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid #00a97f;
+    z-index: 9;
+    background-color: #FFFFFF;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container h2 {
+    margin-bottom: 20px;
+    font-size: 22px;
+    color: #00a97f;
+}
+
+.form-container label {
+    margin-bottom: 5px;
+    font-size: 16px;
+    color: #00a97f;
+}
+
+.form-container input {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #C7E9FF;
+    border-radius: 5px;
+}
+
+.form-container .btn {
+    padding: 10px;
+    background-color: #00a97f;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+.form-container .btn:hover {
+    background-color: #3D4E87;
+}
+
+.form-container .cancel {
+    background-color: #FF4E50;
+    margin-top: 10px;
+}
+
+.form-container .cancel:hover {
+    background-color: #FF7273;
+}
+/*  */
+
+
+.back-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #00a97f;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.back-to-top:hover {
+    background-color: #008f72;
+}
+
+    </style>
+</head>
+
+
+    
+<header>
+    <div class="logo">
+        <h1>HarmonyConnect</h1>
+        <p>Charity Fund</p>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="{% url 'resource_update_all' %}">Inventory</a></li>
+            <li><a href="#services">Services</a></li>
+            <li>
+                <a href="/original/registration.html">Sign-in</a>
+                <ul class="dropdown">
+                    <li><a href="#">Sign-up</a></li>
+                    <li><a href="#">Sign-in</a></li>
+                </ul>
+            </li>
+            <li><a href="#contact">Contact Us</a></li>
+        </ul>
+    </nav>
+</header>
+<!-- Nav -->
+
+<!-- Hero section -->
+<section id="home" class="hero" >
+    
+    <div class="overlay"></div>
+    <div class="text hero-content">
+        <h2>Making people's lives easier</h2>
+        <p class="tagline">Bridging Generations, Fostering Community</p>
+        <p class="description">"Harmony Connect bridges the gap between generations, empowering communities to care for
+            both the elderly and the young through shared love, resources, and support.".</p>
+        <a href="" class="btn">About Us</a>
+    </div>
+</section>
+<!-- Hero section -->
+
+<!-- Mission Section -->
+<section id="mission" class="mission">
+    <div class="mission-content">
+        <h2>Our Mission</h2>
+        <p>At Harmony Connect, our mission is to foster a compassionate and interconnected community where the wisdom
+            and experience of the elderly meet the energy and promise of the young. We believe that old age homes and
+            orphanages are not just places of care but are sanctuaries of shared experiences, stories, and hope.</p>
+        <p>We aim to break the isolation often faced by senior citizens and orphans by creating a platform that promotes
+            collaboration between these two vital communities. Through shared resources, volunteer engagement, and
+            community-driven initiatives, we strive to create environments where both the elderly and the young can
+            flourish together.</p>
+        <button>Read More</button>
+    </div>
+    <div class="mission-image">
+        <img src="{% static 'images/aab1.jpg' %}" alt="Our Mission Image">
+    </div>
+</section>
+<!--Mission section end -->
+
+<!-- Stats Section Start -->
+<section id="" class="stats-section">
+    <div class="stat">
+        <h2>1200</h2>
+        <p>Donation</p>
+    </div>
+    <div class="stat">
+        <h2>2000</h2>
+        <p>Volunteers</p>
+    </div>
+    <div class="stat">
+        <h2>4000</h2>
+        <p>Rescued</p>
+    </div>
+    <div class="stat">
+        <h2>30+</h2>
+        <p>Cities</p>
+    </div>
+</section>
+<!-- Stats Section Ends -->
+
+<!-- Form -->
+<div class="volunteer-container">
+    <div class="content">
+        <h1>Be Our Volunteer for a Cause</h1>
+        <h2>Join Hands, Make a Difference!</h2>
+        <p>We're calling on passionate individuals to join our charity as volunteers.
+            Your time, skills, and enthusiasm can bring about positive change in the lives of those in need.</p>
+        <!-- Use Django's URL template tag to generate the URL for registration -->
+        <a href="{% url 'register' %}" class="btn btn-primary">Register Yourself as Volunteer</a>
+
+    </div>
+    <div class="image-container">
+        <img src="{% static 'images/WhatsApp Image 2024-08-29 at 18.13.15_b99448e3.jpg' %}" alt="Volunteer Image"
+            class="volunteer-image">
+    </div>
+</div>
+
+<!-- Contact Form -->
+<div id="registrationForm" class="form-popup">
+    <form action="/submit_registration" class="form-container">
+        <h2>Volunteer Registration</h2>
+
+        <label for="name"><b>Name</b></label>
+        <input type="text" placeholder="Enter your name" name="name" required>
+
+        <label for="age"><b>Age</b></label>
+        <input type="number" placeholder="Enter your age" name="age" required>
+
+        <label for="contact"><b>Contact No</b></label>
+        <input type="text" placeholder="Enter your contact number" name="contact" required>
+
+        <label for="email"><b>Email</b></label>
+        <input type="email" placeholder="Enter your email" name="email" required>
+
+        <button type="submit" class="btn">Submit</button>
+        <button type="button" class="btn cancel" onclick="document.getElementById('registrationForm').style.display='none'">Close</button>
+    </form>
+</div>
+
+<!-- Form -->
+
+<section class="volunteer-section">
+    <div class="volunteer-content">
+        <div class="image-container">
+            <img src="{% static 'images/info.png' %}" alt="Heart in Hands">
+        </div>
+        <div class="text-container">
+            <h2>Donate</h2>
+            <p>Empower Change: Your Donation Can Transform Lives Today!"</p>
+            <a href="{% url 'donation_list' %}" class="btn">Donate</a>
+        </div>
+    </div>
+</section>
+<!-- Volunteer Ends -->
+
+<!-- Our services -->
+<section id="services" class="our-services">
+    <div class="container">
+        <h2 class="section-title">Our Service</h2>
+        <p class="section-description">At Harmony Connect, we offer a range of services designed to support old age
+            homes and orphanages, fostering collaboration and enhancing care. Our platform includes:</p>
+        <div class="service-cards">
+            <div class="card">
+                <img src="{% static 'images/s6.jpg' %}" alt="Service Image">
+                <div class="card-content">
+                    <h3>Make A Donation</h3>
+                    <p>Your generosity helps us provide essential support and create a lasting impact on the lives of
+                        those in need.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/s6.jpg' %}" alt="Service Image">
+                <div class="card-content">
+                    <h3>Become Volunteer</h3>
+                    <p>Lend a helping hand and make a meaningful difference in our community by joining our dedicated
+                        team of volunteers.</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="{% static 'images/s6.jpg' %}" alt="Service Image">
+                <div class="card-content">
+                    <h3>Sponsor A Child</h3>
+                    <p>Give a child the gift of hope and opportunity by sponsoring their journey. Your support provides
+                        essential care and a brighter future.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Our Services -->
+
+<!-- Contact Us -->
+<section id="contact" class="contact-section">
+    <div class="contact-container">
+        <div class="contact-form">
+            <h2>Contact Us</h2>
+            <p>We’d love to hear from you! Reach out to us with any questions, feedback, or to get involved.</p>
+            <form action="#">
+                <input type="text" name="name" placeholder="Name" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="tel" name="phone" placeholder="Phone" required>
+                <textarea name="Message" placeholder="Message" required></textarea>
+                <button type="submit">Send</button>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- Contact us ends -->
+
+<!-- Footer -->
+<footer class="site-footer">
+    <div class="footer-content">
+        <div class="footer-section about">
+            <h2>About Harmony Connects</h2>
+            <p>Harmony Connect bridges the gap between generations, empowering communities to care for both the elderly
+                and the young through shared love, resources, and support.</p>
+        </div>
+        <div class="footer-section links">
+            <h2>Quick Links</h2>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#mission">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="donate.html">Donate</a></li>
+            </ul>
+        </div>
+        <div class="footer-section contact">
+            <h2>Contact Us</h2>
+            <p>Email: HarmonyConnect@gmail.org</p>
+            <p>Phone: +123 456 7890</p>
+            <p>Address: 123 S V road, Khar (West), Mumbai</p>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        <p>&copy; 2024 HarmonyConnect. All rights reserved.</p>
+    </div>
+</footer>

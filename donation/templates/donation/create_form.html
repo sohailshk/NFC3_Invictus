@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start a Fundraiser</title>
+    <style>
+             /* Styles for the fundraiser section */
+        .fundraiser-section {
+            padding: 50px 20px;
+            background-color: #fff;
+        }
+
+        /* Container for the form */
+        .fundraiser-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Fundraiser form styling */
+        .fundraiser-form {
+            flex: 1;
+            margin-right: 40px;
+            margin-bottom: 20px;
+        }
+
+        .fundraiser-form h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .fundraiser-form p {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            color: #777;
+        }
+
+        .fundraiser-form form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .fundraiser-form input[type="text"],
+        .fundraiser-form input[type="email"],
+        .fundraiser-form input[type="tel"],
+        .fundraiser-form input[type="number"],
+        .fundraiser-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+
+        /* Image input styling */
+        .fundraiser-form input[type="file"] {
+            padding: 10px;
+            background-color: #00a97f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        /* Submit button styling */
+        .fundraiser-form button {
+            padding: 15px;
+            background-color: #00a97f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+        }
+
+        .fundraiser-form button:hover {
+            background-color: #008a68;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .fundraiser-container {
+                flex-direction: column;
+            }
+
+            .fundraiser-form {
+                margin-right: 0;
+            }
+        }
+        /* Keep the existing CSS styles here */
+        /* ... */
+        /* Add this style for form errors */
+        .errorlist {
+            color: red;
+            list-style-type: none;
+            padding: 0;
+            margin: 0 0 10px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <section class="fundraiser-section">
+        <div class="fundraiser-container">
+            <div class="fundraiser-form">
+                <h2>Start a Fundraiser</h2>
+                <p>Start your own fundraiser to gather donations and support for your cause.</p>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+
+                    <!-- Image upload input -->
+                    {{ form.image.errors }}
+                    <label for="{{ form.image.id_for_label }}">Upload Image:</label>
+                    {{ form.image }}
+
+                    <!-- Description input -->
+                    {{ form.description.errors }}
+                    {{ form.description }}
+
+                    <!-- Goal amount input -->
+                    {{ form.goal_amount.errors }}
+                    <input type="number" name="{{ form.goal_amount.name }}" placeholder="Goal Amount (in ₹)" required
+                        id="{{ form.goal_amount.id_for_label }}">
+
+                    <!-- Phone number input -->
+                    {{ form.phone_number.errors }}
+                    <input type="tel" name="{{ form.phone_number.name }}" placeholder="Phone Number" required
+                        id="{{ form.phone_number.id_for_label }}">
+
+                    <!-- Email input -->
+                    {{ form.email.errors }}
+                    <input type="email" name="{{ form.email.name }}" placeholder="Email Address" required
+                        id="{{ form.email.id_for_label }}">
+
+                    <!-- Submit button -->
+                    <button type="submit">Create Fundraiser</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

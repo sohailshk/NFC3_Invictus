@@ -1,0 +1,28 @@
+{% extends 'layouts/app.html' %}
+
+{% block title %}Registration{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="registration-form">
+        <h2>REGISTER</h2>
+        <p>Welcome! Register to access our website.<br>Already have an account? <a href="{% url 'login' %}">Log in here</a></p>
+        <form method="POST" action="{% url 'register' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" name="{{ form.username.name }}" placeholder="Name of the institution" required>
+                <span class="text-danger">{{ form.username.errors }}</span>
+            </div>
+            <div class="form-group">
+                <input type="password" name="{{ form.password1.name }}" placeholder="Password..." required>
+                <span class="text-danger">{{ form.password1.errors }}</span>
+            </div>
+            <div class="form-group">
+                <input type="password" name="{{ form.password2.name }}" placeholder="Confirm Password..." required>
+                <span class="text-danger">{{ form.password2.errors }}</span>
+            </div>
+            <button type="submit" class="btn btn-dark register-btn">REGISTER</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

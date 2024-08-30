@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Cards</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        /* Header Section */
+        .header {
+            background-color: #00a97f;
+            padding: 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .header h1 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        .event-section {
+            padding: 50px 20px;
+            background-color: #fff;
+        }
+
+        .event-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .event-card {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            padding: 20px;
+            flex: 0 1 calc(33.333% - 20px);
+            /* 3 cards per row */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .event-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .event-image {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+
+        .event-name {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        .event-description {
+            font-size: 1em;
+            margin-bottom: 15px;
+            color: #777;
+        }
+
+        .event-phone,
+        .event-email {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .event-card {
+                flex: 0 1 calc(50% - 20px);
+                /* 2 cards per row on smaller screens */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .event-card {
+                flex: 0 1 100%;
+                /* 1 card per row on very small screens */
+            }
+        }
+         .volunteer-button {
+            position: absolute;
+            right: 20px; /* Adjust the distance from the right edge */
+            padding: 10px 20px; /* Adjust the size of the button */
+            font-size: 16px; /* Adjust the text size */
+            background-color: #4CAF50; /* Button color */
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .volunteer-button:hover {
+            background-color: #45a049; /* Hover color */
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <h1>Volunteers You Can Register With</h1>
+        <a href="{% url 'volunteer_form' %}" class="volunteer-button">  Admin Form</a>
+    </header>
+
+    <section class="event-section">
+        <div class="event-container">
+
+            {% for volunteer in volunteers %}
+            <!-- Volunteer Card -->
+            <div class="event-card">
+                <img src="{{ volunteer.photo.url }}" alt="{{ volunteer.name }}" class="event-image">
+                <h3 class="event-name">{{ volunteer.name }}</h3>
+                <p class="event-description">{{ volunteer.description }}</p>
+                <p class="event-phone">Phone: {{ volunteer.phone_number }}</p>
+                <p class="event-email">Email: {{ volunteer.email }}</p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</body>
+
+</html>

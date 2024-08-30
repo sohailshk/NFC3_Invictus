@@ -1,0 +1,115 @@
+{% extends 'layouts/app.html' %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<style>
+/* styles.css */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: #d8c7af;
+    background-image: url('images/login_image.png');
+    background-repeat: no-repeat fixed;
+    background-size: 100%;
+}
+
+.login-form {
+    translate: 0 20%;
+    padding: 30px;
+    max-width: 400px;
+    background-color: #f2f0eb;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.login-form h2 {
+    font-size: 2em;
+    margin-bottom: 0.5em;
+    color: #000;
+    font-weight: bold;
+}
+
+.login-form p {
+    font-size: 1em;
+    color: #4a4a4a;
+    margin-bottom: 1.5em;
+}
+
+.login-form a {
+    color: #a88224;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-form input {
+    padding: 15px;
+    margin-bottom: 1em;
+    border: none;
+    border-radius: 5px;
+    background-color: #2e2e2e;
+    color: #fff;
+    font-size: 1em;
+}
+
+.login-form input::placeholder {
+    color: #b5b5b5;
+}
+
+.login-btn {
+    padding: 15px;
+    background-color: #a88224;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    margin-bottom: 1em;
+}
+
+.register-text {
+    font-size: 0.9em;
+    color: #4a4a4a;
+    text-align: center;
+}
+
+.register-text a {
+    color: #a88224;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+</style>
+
+<div class="container">
+    <div class="login-form">
+        <h2>LOG IN</h2>
+        <p>Welcome back! Log in to access our website.<br>Did you <a href="#">forget your password?</a></p>
+        <form method="POST" action="{% url 'login' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="text" name="{{ form.username.name }}" placeholder="Username..." required>
+                <span class="text-danger">{{ form.username.errors }}</span>
+            </div>
+            <div class="form-group">
+                <input type="password" name="{{ form.password.name }}" placeholder="Password..." required>
+                <span class="text-danger">{{ form.password.errors }}</span>
+            </div>
+            <button type="submit" class="btn btn-dark login-btn">LOG IN</button>
+            <p class="register-text">Not registered? <a href="{% url 'register' %}">Create an account!</a></p>
+        </form>
+    </div>
+</div>
+{% endblock %}

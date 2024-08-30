@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table UI</title>
+    
+    <style>
+        * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    display: flex;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: #00b381;
+    color: #fff;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar ul li {
+    margin: 15px 0;
+}
+
+.main-content {
+    flex: 1;
+    background-color: #F7F8FB;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.header h2 {
+    color: #333;
+}
+
+.header button {
+    background-color: #00b381;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.search-bar {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.search-bar input, .search-bar select, .search-bar button {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+}
+
+.search-bar input {
+    flex: 1;
+    margin-right: 10px;
+}
+
+.search-bar button {
+    background-color: #00b381;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+thead {
+    background-color: #00b381;
+    color: #fff;
+}
+
+thead th {
+    padding: 15px;
+    text-align: left;
+}
+
+tbody tr {
+    border-bottom: 1px solid #ddd;
+}
+
+tbody td {
+    padding: 15px;
+    text-align: left;
+}
+
+tbody tr:last-child {
+    border-bottom: none;
+}
+
+tbody input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    background-color: #00b381;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+.pagination span {
+    margin: 0 10px;
+    font-size: 18px;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="sidebar">
+            <h2>Admin Dashboard</h2>
+            <ul>
+                <li>Dashboard</li>
+            </ul>
+        </div>
+        <div class="main-content">
+            <div class="header">
+                <h2>Orders</h2>
+                <button>Create New</button>
+            </div>
+            <div class="search-bar">
+                <input type="text" placeholder="Search for category, name, company, etc">
+                <select>
+                    <option value="all">Category</option>
+                </select>
+                <select>
+                    <option value="all">Status</option>
+                </select>
+                <button>Search</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>name</th>
+                        <th>quantity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox">1077620</td>
+                        <td>22 Jan 2020</td>
+                        <td>Pending</td>
+                        <td>Ahmed</td>
+                        <td>ahmed.123@mail.com</td>
+                        <td>Australia</td>
+                        <td>Australian Post Api</td>
+                    </tr>
+                    <!-- Repeat for more rows -->
+                </tbody>
+            </table>
+            <div class="pagination">
+                <button>Previous</button>
+                <span>3</span>
+                <button>Next</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,177 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create an Event</title>
+    <style>
+        /* Styles for the contact section */
+        .contact-section {
+            padding: 50px 20px;
+            background-color: #fff;
+        }
+    
+        /* Container for the contact form and info */
+        .contact-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+    
+        /* Contact form styling */
+        .contact-form {
+            flex: 1;
+            margin-right: 40px;
+            margin-bottom: 20px;
+        }
+    
+        .contact-form h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+    
+        .contact-form p {
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            color: #777;
+        }
+    
+        .contact-form form {
+            display: flex;
+            flex-direction: column;
+        }
+    
+        .contact-form input[type="text"],
+        .contact-form input[type="email"],
+        .contact-form input[type="tel"],
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1em;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+    
+        /* Image input styling */
+        .contact-form input[type="file"] {
+            padding: 10px;
+            background-color: #00a97f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+    
+        /* Submit button styling */
+        .contact-form button {
+            padding: 15px;
+            background-color: #00a97f;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-align: center;
+    
+        }
+    
+        .contact-form button:hover {
+            background-color: #008a68;
+        }
+    
+        /* Contact info styling */
+        .contact-info {
+            flex: 0.5;
+            text-align: left;
+            margin-bottom: 20px;
+        }
+    
+        .contact-info h2 {
+            font-size: 2.5em;
+            color: #00a97f;
+            margin-bottom: 20px;
+        }
+    
+        .contact-info h3 {
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+    
+        .contact-info p {
+            font-size: 1.2em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+    
+        .submit {
+            margin-left: 20px;
+        }
+    
+        .imageinput {
+            margin-left: 20px;
+        }
+    
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-container {
+                flex-direction: column;
+            }
+    
+            .contact-form {
+                margin-right: 0;
+            }
+    
+            .contact-info {
+                margin-top: 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="contact-section">
+        <div class="contact-container">
+            <div class="contact-form">
+                <h2>Create an event</h2>
+                <p>Create your own event! Reach out to volunteers to get any help in your events.</p>
+                <form method="post" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form.non_field_errors }}
+
+                    <input type="text" name="{{ form.name.name }}" placeholder="Title of the event" required>
+                    {{ form.name.errors }}
+
+                    <input type="file" name="{{ form.photo.name }}" placeholder="Upload image" required
+                        class="imageinput">
+                    {{ form.photo.errors }}
+
+                    <textarea name="{{ form.description.name }}" placeholder="Details of the event" required></textarea>
+                    {{ form.description.errors }}
+
+                    <input type="tel" name="{{ form.phone_number.name }}" placeholder="Phone no." required>
+                    {{ form.phone_number.errors }}
+
+                    <input type="email" name="{{ form.email.name }}" placeholder="Email" required>
+                    {{ form.email.errors }}
+
+                    <button type="submit" class="submit">Submit</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
