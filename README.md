@@ -7,10 +7,6 @@
 - [Features](#features)
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
-- [Contact](#contact)
 
 ## Features
 
@@ -36,45 +32,27 @@ To set up the Harmony Connect project on your local machine, follow these steps:
    git clone https://github.com/sohailshk/NFC3_Invictus.git
 Navigate to the project directory:
 
-# Navigate to the project directory
-cd harmony-connect
+2. **Navigate to the project directory**:
+   '''bash
+   cd harmony-connect
+   navigate:
 
-# Create a virtual environment
-python -m venv venv
+4. ***Create a virtual environment***:
+   '''bash
+   python -m venv venv
 
-# Activate the virtual environment
-# For Windows
-venv\Scripts\activate
+ ***Activate the virtual environment***
+4. ***For Windows***
+   '''bash
+   venv\Scripts\activate
 
-# For macOS/Linux
-# source venv/bin/activate
+5. ***Run database migrations***
+   '''bash
+   python manage.py migrate
 
-# Run database migrations
-python manage.py migrate
+6. ***Start the development server***
+   '''bash
+   python manage.py runserver
 
-# Start the development server
-python manage.py runserver
-
-# Access the platform
+7. ***Access the platform***
 echo "Open your web browser and go to http://127.0.0.1:8000/."
-
-
-# Contributing Instructions (also comments)
-echo "Contributing:"
-echo "Contributions are welcome! If you would like to contribute to Harmony Connect, please follow these steps:"
-echo "1. Fork the repository."
-echo "2. Create a new branch: git checkout -b feature/YourFeature."
-echo "3. Make your changes and commit them: git commit -m 'Add new feature'."
-echo "4. Push to the branch: git push origin feature/YourFeature."
-echo "5. Create a pull request detailing your changes."
-
-# License Information
-echo "License:"
-echo "This project is licensed under the MIT License. See the LICENSE file for details."
-
-# Contact Information
-echo "Contact:"
-echo "For inquiries or feedback, please contact:"
-echo "Mohammad Sohail Shaikh"
-echo "Email: sohailsaif504@gmail.com"
-echo "GitHub: sohailshk"
