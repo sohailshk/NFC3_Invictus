@@ -56,3 +56,5 @@ Navigate to the project directory:
 
 7. ***Access the platform***
 echo "Open your web browser and go to http://127.0.0.1:8000/."
+
+For Queries Contact at sohailsaif504@gmail.com
